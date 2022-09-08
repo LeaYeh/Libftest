@@ -93,7 +93,7 @@ check_header()
 			printf "%.s=" $(seq 1 $(( 80 - ${#text} ))) >> ${PATH_DEEPTHOUGHT}/deepthought
 			printf "\n" >> ${PATH_DEEPTHOUGHT}/deepthought
 			printf "$> norminette libft.h | grep -E '(Error|Warning)'\n" >> ${PATH_DEEPTHOUGHT}/deepthought
-			NORME_VAR=$(norminette ${PATH_LIBFT}/libft.h 2>&1)
+			NORME_VAR=$(norminette -R CheckDefine ${PATH_LIBFT}/libft.h 2>&1)
 			if echo "$NORME_VAR" | grep -q command
 			then
 				printf "${COLOR_WARNING}\033[15Gnot found${DEFAULT}\n"
